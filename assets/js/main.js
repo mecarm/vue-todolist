@@ -39,7 +39,12 @@ var app = new Vue({
         },
         inputTask() {
             let inputField = document.getElementById('inputUtente').value;
-            this.todoList.push({testo: `${inputField}`, done: false})
+            if (inputField == ''){
+                alert('Il campo non può essere vuoto')
+            }
+            else{
+                this.todoList.push({testo: `${inputField}`, done: false})
+            }
           },
     } 
 })
