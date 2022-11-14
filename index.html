@@ -16,9 +16,26 @@
 </head>
 
 <body>
-
+    <!-- Div con id app per Vue.js -->
     <div id="app">
-
+        <div class="container mt-3">
+            <!-- Input e button -->
+            <div class="text-center d-flex justify-content-center align-items-center">
+                <input type="text" placeholder="Nuova task" class="p-2 rounded-3">
+                <button class="btn btn-primary ms-2">Aggiungi</button>
+            </div>
+            <!-- Contenitore per lista Todo -->
+            <div class="pt-5">
+                <ul v-if="todoList.length > 0" class="list-group list-group-flush">
+                    <!-- Ciclo for di Vue.js per stampare nel DOM con parametro element che sostituisce l'oggetto todoList e la chiave testo -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center" v-for="( element, index ) in todoList">
+                        {{ element.testo }}
+                        <i class="fa-solid fa-xmark text-danger"></i>
+                    </li>
+                </ul> 
+                <h4 v-else>Non ci sono task da fare</h4>
+            </div>
+        </div>
     </div>
 
     <!-- Script Bootstrap -->
