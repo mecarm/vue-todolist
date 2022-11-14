@@ -3,31 +3,43 @@ var app = new Vue({
     data: {
         todoList:[ 
             {
-                testo: 'Imparare HTML'
+                testo: 'Imparare HTML',
+                done : false
             },
             {
-                testo: 'Imparare CSS'
+                testo: 'Imparare CSS',
+                done : false
             },
             {
-                testo: 'Imparare JavaScript'
+                testo: 'Imparare JavaScript',
+                done : false
             },
             {
-                testo: 'Imparare Vue.js'
+                testo: 'Imparare Vue.js',
+                done : false
             },
             {
-                testo: 'Imparare PHP & MYSQL'
+                testo: 'Imparare PHP & MYSQL',
+                done : false
             },
             {
-                testo: 'Imparare Laravel'
-            }
+                testo: 'Imparare Laravel',
+                done : false
+            },
+            
         ],
-        taskCompleted: []
+        taskCompleted: [],
     },
     methods: {
-        taskCompletata(param){
+        taskCompletata(param, indice){
             //per rimuover oggetto dall'array uso splice() dove il param sarà l'index cliccato di riferimento (ad esempio clicco il secondo che avrà index 1) che sara rimosso dall'array
-            this.todoList.splice(param, 1);
+            this.todoList.splice(indice, 1);
+            //Funzione per pushare nell'array taskCompleted il parametro inserito nell'HTML ad esmpio element del ciclo for
             this.taskCompleted.push(param);
-        }
-    }
+        },
+        inputTask() {
+            let inputField = document.getElementById('inputUtente').value;
+            this.todoList.push({testo: `${inputField}`, done: false})
+          },
+    } 
 })
